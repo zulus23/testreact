@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
-
+import Task from './Task'
 const  TaskList = (props) => {
     return (
-        <div className="task">
-            <div className="task-header">
-                <div>{props.tasks.title}</div>
+        <div className="task-list">
+            <div className="task-list-title">
+                <strong>{props.status}</strong>
             </div>
 
             <hr />
-            <div className="task-body">{props.tasks.description}</div>
+            {
+                props.tasks.map(task => (
+                    <Task key={task.id} task={task}/>
+                ))
+            }
         </div>
     )
 }
