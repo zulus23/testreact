@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import TaskList from './TaskList';
+import {TASK_STATUSES} from '../../utils/utils'
 
 
-const TASK_STATUSES = ['Unstarted', 'In Progress', 'Completed'];
-class TasksPage extends Component {
+class TasksPage extends Component
+
+{
     constructor(props){
         super(props);
         this.state = {
