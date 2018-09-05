@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom'
-class Test extends Component {
-    render() {
-        return (
-            <div>
-                <h2>My test1</h2>
-            </div>
-        );
-    }
-}
+import ReactDOM from 'react-dom';
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import tasks from './reducers'
 
-ReactDOM.render(<Test/>,document.getElementById("react-id"))
+import App from "./components/app/App";
+const store = createStore(tasks);
+
+
+
+
+ReactDOM.render(<Provider store={store}><App/></Provider>,document.getElementById("react-id"))
