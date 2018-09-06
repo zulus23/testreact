@@ -19,21 +19,7 @@ module.exports = {
             {
                 test:/\.css$/,
                 exclude: /node_modules/,
-                use:[
-                    {loader: MiniCssExtractPlugin.loader},
-                    {
-                        loader: "css-loader",
-                        options: {
-                            sourceMap: true,
-                            modules: true,
-                            localIdentName: "[local]___[hash:base64:5]"
-                        }
-                    },
-
-                    {
-                        loader: 'postcss-loader'
-                    }
-                ]
+                use:[ 'style-loader', MiniCssExtractPlugin.loader,'css-loader']
             },
             {
                 test:/\.json$/,
@@ -42,12 +28,12 @@ module.exports = {
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'style.[contenthash].css',
+        }),
         new HtmlWebPackPlugin({
             template:"./src/index.html",
             filename:"./index.html"
-        }),
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
         })
 
     ]

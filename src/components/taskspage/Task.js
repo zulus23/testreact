@@ -4,22 +4,23 @@ import {TASK_STATUSES} from "../../utils/utils";
 const Task = (props) => {
 
 
-    function onStatusChange() {
-
+    function onStatusChange(e) {
+        props.onStatusChange(props.task.id,e.target.value)
     }
 
     return (
-        <div>
+        <div className="task">
+            <div className="task-header">
+                <div> {props.task.title}</div>
 
-            <div> {props.task.title}</div>
-            <select value={props.task.status} onChange={onStatusChange}>
-                {TASK_STATUSES.map(status => (
+                <select value={props.task.status} onChange={onStatusChange}>
+                    {TASK_STATUSES.map(status => (
 
-                    <option key={status} value={status}>{status}</option>
-                ))}
-            </select>
-
-            <div>{props.task.description}</div>
+                        <option key={status} value={status}>{status}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="task-body">{props.task.description}</div>
         </div>
     );
 };

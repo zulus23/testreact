@@ -6,7 +6,7 @@ import tasks from './reducers'
 
 import App from "./components/app/App";
 const store = createStore(tasks);
-
+import './index.css'
 
 
 
